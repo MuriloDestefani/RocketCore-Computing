@@ -1,0 +1,142 @@
+.fonte {
+    font-family: 'Roboto', sans-serif;
+}
+
+.bg-cinza {
+    background-color: #121214 !important;
+}
+
+.active {
+    font-weight: bold;
+    color: #8257E5 !important;
+}
+
+.botao {
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: #121214;
+    border: 1px solid #8257E5;
+}
+
+.botao:hover {
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: #8257E5;
+    border: 1px solid #8257E5;
+}
+
+.botao:hover:active {
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: #8257E5;
+    border: 1px solid #8257E5;
+}
+
+.botao a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.botao a:hover {
+    text-decoration: none;
+}
+
+.bi-rocket-takeoff-fill {
+    color: #8257E5;
+}
+
+.navbar-brand {
+    font-family: 'Fira Code', monospace;
+}
+
+footer {
+    color: #FFFFFF;
+}
+
+footer a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+footer a:hover {
+    color: #8257E5;
+}
+
+.social i {
+    color: #8257E5;
+    text-decoration: none !important;
+    background-color: #202024;
+    padding: 10px;
+    border-radius: 20%;
+}
+
+.social i:hover {
+    color: #FFFFFF;
+    background-color: #8257E5;
+}
+
+.hero {
+    min-height: 100vh;
+    background-image: url(/img/rocket.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+}
+
+.hero h2,
+.hero h6,
+.hero p {
+    color: #FFFFFF;
+}
+
+.hero h2 {
+    font-weight: 700;
+    font-size: 56px;
+}
+
+.hero h6 {
+    font-size: 18px;
+}
+
+.botao-hero {
+    color: #FFFFFF;
+    background-color: #8257E5;
+    border-color: #8257E5;
+}
+
+.botao-hero:hover {
+    color: #FFFFFF;
+    background-color: #633BBC;
+    border-color: #633BBC;
+}
+
+.botao-hero:hover:active {
+    color: #FFFFFF;
+    background-color: #633BBC;
+    border-color: #633BBC;
+}
+
+.botao-hero a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.botao-hero a i {
+    background-color: #633BBC;
+    margin-left: 10px;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+.cad-user h1 {
+    color: #633BBC;
+    font-weight: 700;
+    font-size: 56px;
+}
+
+.banner-cad {
+    background-color: #633BBC;
+    background-image: url(/img/rocket.png);
+}
