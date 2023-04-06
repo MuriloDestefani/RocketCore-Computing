@@ -1,39 +1,47 @@
-.fonte {
+:root {
+    --branco: #FFFFFF;
+    --cinza: #121214;
+    --roxo: #8257E5;
+    --roxo-hover: #633BBC;
+    --azul: #01FFFF;
+}
+
+body {
     font-family: 'Roboto', sans-serif;
 }
 
 .bg-cinza {
-    background-color: #121214 !important;
+    background-color: var(--cinza) !important;
 }
 
 .active {
     font-weight: bold;
-    color: #8257E5 !important;
+    color: var(--roxo) !important;
 }
 
 .botao {
     font-weight: 700;
-    color: #FFFFFF;
-    background-color: #121214;
-    border: 1px solid #8257E5;
+    color: var(--branco);
+    background-color: var(--cinza);
+    border: 1px solid var(--roxo);
 }
 
 .botao:hover {
     font-weight: 700;
-    color: #FFFFFF;
-    background-color: #8257E5;
-    border: 1px solid #8257E5;
+    color: var(--branco);
+    background-color: var(--roxo);
+    border: 1px solid var(--roxo);
 }
 
 .botao:hover:active {
     font-weight: 700;
-    color: #FFFFFF;
-    background-color: #8257E5;
-    border: 1px solid #8257E5;
+    color: var(--branco);
+    background-color: var(--roxo);
+    border: 1px solid var(--roxo);
 }
 
 .botao a {
-    color: #FFFFFF;
+    color: var(--branco);
     text-decoration: none;
 }
 
@@ -42,7 +50,7 @@
 }
 
 .bi-rocket-takeoff-fill {
-    color: #8257E5;
+    color: var(--roxo);
 }
 
 .navbar-brand {
@@ -50,20 +58,32 @@
 }
 
 footer {
-    color: #FFFFFF;
+    color: var(--branco);
 }
 
 footer a {
     text-decoration: none;
-    color: #FFFFFF;
+    color: var(--branco);
 }
 
 footer a:hover {
-    color: #8257E5;
+    color: var(--azul);
+}
+
+.slogan {
+    text-transform: uppercase;
+    font-size: 8px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: var(--azul);
+}
+
+.destefani h6 {
+    font-size: 10px;
 }
 
 .social i {
-    color: #8257E5;
+    color: var(--roxo);
     text-decoration: none !important;
     background-color: #202024;
     padding: 10px;
@@ -71,8 +91,8 @@ footer a:hover {
 }
 
 .social i:hover {
-    color: #FFFFFF;
-    background-color: #8257E5;
+    color: var(--branco);
+    background-color: var(--roxo);
 }
 
 .hero {
@@ -86,7 +106,7 @@ footer a:hover {
 .hero h2,
 .hero h6,
 .hero p {
-    color: #FFFFFF;
+    color: var(--branco);
 }
 
 .hero h2 {
@@ -96,59 +116,60 @@ footer a:hover {
 
 .hero h6 {
     font-size: 18px;
+    color: var(--azul);
 }
 
 .botao-hero {
-    color: #FFFFFF;
-    background-color: #8257E5;
-    border-color: #8257E5;
+    color: var(--branco);
+    background-color: var(--roxo);
+    border-color: var(--roxo);
 }
 
 .botao-hero:hover {
-    color: #FFFFFF;
-    background-color: #633BBC;
-    border-color: #633BBC;
+    color: var(--branco);
+    background-color: var(--roxo-hover);
+    border-color: var(--roxo-hover);
 }
 
 .botao-hero:hover:active {
-    color: #FFFFFF;
-    background-color: #633BBC;
-    border-color: #633BBC;
+    color: var(--branco);
+    background-color: var(--roxo-hover);
+    border-color: var(--roxo-hover);
 }
 
 .botao-hero a {
     text-decoration: none;
-    color: #FFFFFF;
+    color: var(--branco);
     font-weight: 700;
     text-transform: uppercase;
 }
 
 .botao-hero a i {
-    background-color: #633BBC;
+    background-color: var(--roxo-hover);
     margin-left: 10px;
     padding: 6px;
     border-radius: 6px;
 }
 
 .cad-user h1 {
-    color: #633BBC;
+    color: var(--roxo-hover);
     font-weight: 700;
     font-size: 56px;
 }
 
 .banner-cad {
-    background-color: #633BBC;
+    background-color: var(--roxo-hover);
     background-image: url(/img/rocket.png);
 }
 
 .icon-top {
     font-size: 40px;
-    color: #8257E5;
+    color: var(--roxo);
 }
 
 .img-cad {
     min-height: 100vh;
-    background-color: #8257E5;
+    background-color: var(--roxo);
     background-image: url(/img/young-woman-uses-smartphone-laptop-cafe-holiday-concept.jpg);
     background-repeat: no-repeat;
     background-position: center top;
@@ -157,7 +178,7 @@ footer a:hover {
 
 .img-alt {
     min-height: 100vh;
-    background-color: #8257E5;
+    background-color: var(--roxo);
     background-image: url(/img/young-woman-freelancer-cafe-with-cup-coffee-gift-box.jpg);
     background-repeat: no-repeat;
     background-position: center top;
@@ -172,4 +193,25 @@ footer a:hover {
 .ex-user,
 .prods {
     min-height: 100vh;
+}
+
+.card {
+    transition: 500ms ease-in-out;
+    border: 1px solid #e9e9e9;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    transition: 250ms ease-in-out;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--roxo-hover);
+}
+
+.card-text {
+    font-size: 12px;
 }
