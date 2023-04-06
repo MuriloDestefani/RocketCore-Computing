@@ -140,3 +140,36 @@ footer a:hover {
     background-color: #633BBC;
     background-image: url(/img/rocket.png);
 }
+
+.icon-top {
+    font-size: 40px;
+    color: #8257E5;
+}
+
+.img-cad {
+    min-height: 100vh;
+    background-color: #8257E5;
+    background-image: url(/img/young-woman-uses-smartphone-laptop-cafe-holiday-concept.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+
+.img-alt {
+    min-height: 100vh;
+    background-color: #8257E5;
+    background-image: url(/img/young-woman-freelancer-cafe-with-cup-coffee-gift-box.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+
+.titulo {
+    font-weight: 700;
+    font-size: 56px;
+}
+
+.ex-user,
+.prods {
+    min-height: 100vh;
+}

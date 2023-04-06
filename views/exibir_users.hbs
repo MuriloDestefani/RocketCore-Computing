@@ -1,0 +1,46 @@
+<div class="container-fluid text-center my-5 ex-user">
+    <i class="bi bi-person-lines-fill icon-top"></i>
+    <h1 class="mb-3 titulo">Listar Usuários</h1>
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col"><i class="bi bi-list-ol"></i> ID</th>
+                <th scope="col"><i class="bi bi-person-vcard-fill"></i> Nome</th>
+                <th scope="col"><i class="bi bi-envelope-at-fill"></i> Email</th>
+                <th scope="col"><i class="bi bi-database-fill"></i> Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{!-- {{#each usuarios}} --}}
+            <tr>
+                <th scope="row">{{id}}</th>
+                <td>{{nome}}</td>
+                <td>{{email}}</td>
+                <td>
+                    <div class="row g-1 d-flex justify-content-center align-items-center">
+                        <div class="col-6 col-md-3">
+                             <form action="/editar_users" method="post">
+                                <input type="hidden" name="id"  value="{{id}}">
+                                 <button class="w-100 btn botao-hero">Editar</button>
+                             </form>
+                        </div>
+                        <div class="col-6 col-md-3">
+                                <form action="/excluir_users" method="post">
+                                <input type="hidden" name="id"  value="{{id}}">
+                                <button class="w-100 btn botao">Excluir</button>
+                             </form>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {{!-- {{/each}} --}}
+        </tbody>
+    </table>
+    {{!-- {{else}}
+    <div class="card mt-4">
+        <div class="card-body">
+            Nenhum dado encontrado!
+        </div>
+    </div>
+    {{/if}} --}}
+</div>
