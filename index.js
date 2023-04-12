@@ -40,3 +40,14 @@ app.get('/prods',(req,res)=>{
 res.render('prods'); 
 });
     
+// add o comando para chamar o módulo:
+const bodyParser = require('body-parser');
+
+// criar a rota middlewares
+app.use(bodyParser.urlencoded({extended:false}));
+
+//criar a rota para receber o formulário de usuário
+app.post('/insert_users',(req,res)=>{
+    console.log(req.body);
+    })
+

@@ -1,6 +1,7 @@
 <div class="container-fluid text-center my-5 ex-user">
     <i class="bi bi-person-lines-fill icon-top"></i>
     <h1 class="mb-3 titulo">Listar Usuários</h1>
+    {{#if table}}
     <table class="table table-striped">
         <thead class="table-dark">
             <tr>
@@ -11,7 +12,7 @@
             </tr>
         </thead>
         <tbody>
-            {{!-- {{#each usuarios}} --}}
+            {{#each usuarios}}
             <tr>
                 <th scope="row">{{id}}</th>
                 <td>{{nome}}</td>
@@ -33,14 +34,14 @@
                     </div>
                 </td>
             </tr>
-            {{!-- {{/each}} --}}
+            {{/each}}
         </tbody>
     </table>
-    {{!-- {{else}}
+    {{else}}
     <div class="card mt-4">
         <div class="card-body">
             Nenhum dado encontrado!
         </div>
     </div>
-    {{/if}} --}}
+    {{/if}}
 </div>
