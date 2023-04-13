@@ -39,6 +39,11 @@ res.render('editar_users');
 app.get('/prods',(req,res)=>{
 res.render('prods'); 
 });
+
+// rota renderizada 
+app.get('/',(req,res)=>{
+    res.render('home'); 
+    });
     
 // add o comando para chamar o módulo:
 const bodyParser = require('body-parser');
