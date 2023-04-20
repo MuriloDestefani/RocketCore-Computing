@@ -55,5 +55,30 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.post('/insert_users',(req,res)=>{
     console.log(req.body);
     })
-    
+
+// criar a rota para o POST middlewares
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({extended:false})); 
+
+//IMPORTAR MODEL USUARIOS
+const Usuario = require('./models/Usuario');
+
+//criar a rota para receber o formulario de usuário
+app.post('/insert_users',(req,res)=>{
+    var nome = req.body.nome;
+    var email = req.body.email;
+    var senha = req.body.senha;
+    // Salvar no Banco de Dados
+    Usuario.create({
+        nome: nome,
+        email: email.toLowerCase(),
+        senha: senha
+        }).then(function(){
+         console.log('Cadastro realizado com sucesso!');
+       //  req.session.succes = true;
+        return res.redirect('/exibir_users');
+        }).catch(function(erro){
+         console.log(`Ops, deu erro: ${erro}`);
+        })
+    });  // fim do post
 
