@@ -55,4 +55,5 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.post('/insert_users',(req,res)=>{
     console.log(req.body);
     })
+    
 
