@@ -10,18 +10,19 @@ const db = require('./db');
         type: db.Sequelize.STRING,
         allowNull: false
     },
-
     email:{
-            type: db.Sequelize.STRING,
-            allowNull: false
-        },
-        senha:{
-            type: db.Sequelize.STRING,
-            allowNull: false
-        }
+          type: db.Sequelize.STRING,
+          allowNull: false
+    },
+    senha:{
+          type: db.Sequelize.STRING,
+          allowNull: false
+    }
     })
-    // Sincronizr com o BD, 
-    //se não existir esta tabela durante a execução ele //vai criar no BD
-    Usuario.sync();
-    module.exports = Usuario;
-    
+
+// Sincronizr com o BD, 
+//se não existir esta tabela durante a execução ele
+//vai criar no BD
+Usuario.sync();
+
+module.exports = Usuario;    

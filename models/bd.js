@@ -16,3 +16,5 @@ const sequelize = new Sequelize('bd_loja', 'postgres', '031016',{
  }).catch(function(err){
     console.log('Falha ao se conectar:'+err);
  })
+
+module.exports = {Sequelize, sequelize}

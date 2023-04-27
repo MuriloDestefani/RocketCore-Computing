@@ -25,10 +25,20 @@ app.use(express.static('public'));
 app.get('/cad_users',(req,res)=>{
 res.render('cad_users'); 
 });
+
 // rota renderizada 
-app.get('/exibir_users',(req,res)=>{
-res.render('exibir_users'); 
-});
+app.get('/exibir_users',(req,res)=>{    
+    Usuario.findAll().then((valores)=>{
+    if(valores.length >0){
+            return res.render('exibir_users',{NavActiveUsers:true, table:true, usuarios: valores.map(valores => valores.toJSON()) });
+        }else{
+            res.render('exibir_users',{NavActiveUsers:true, table:false});
+        }
+    }).catch((err)=>{
+        console.log(`Houve um problema: ${err}`);
+    })
+})
+
     
 // rota renderizada 
 app.get('/editar_users',(req,res)=>{
@@ -51,14 +61,9 @@ const bodyParser = require('body-parser');
 // criar a rota middlewares
 app.use(bodyParser.urlencoded({extended:false}));
 
-//criar a rota para receber o formulário de usuário
-app.post('/insert_users',(req,res)=>{
-    console.log(req.body);
-    })
-
 // criar a rota para o POST middlewares
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded({extended:false})); 
+app.use(bodyParser.urlencoded({extended:false}));
 
 //IMPORTAR MODEL USUARIOS
 const Usuario = require('./models/Usuario');
@@ -80,5 +85,4 @@ app.post('/insert_users',(req,res)=>{
         }).catch(function(erro){
          console.log(`Ops, deu erro: ${erro}`);
         })
-    });  // fim do post
-
+    });  // fim do post    
