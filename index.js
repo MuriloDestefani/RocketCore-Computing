@@ -66,7 +66,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended:false}));
 
 //IMPORTAR MODEL USUARIOS
-const Usuario = require('/models/Usuario');
+const Usuario = require('./models/Usuario');
 
 //criar a rota para receber o formulario de usuário
 app.post('/insert_users',(req,res)=>{
