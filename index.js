@@ -2,11 +2,15 @@ const express = require('express');
 const app = express();
 const hbs = require('express-handlebars');
 const PORT = process.env.PORT || 3000;
+// add o comando para chamar o módulo:
+const bodyParser = require('body-parser');
+//IMPORTAR MODEL USUARIOS
+const Usuario = require('./models/Usuario');
 // Configuracao do HandleBars
 app.engine('hbs',hbs.engine({
-    extname: 'hbs', 
-    defaultLayout: 'main'
-    })); 
+    extname: 'hbs', 
+    defaultLayout: 'main'
+})); 
 app.set('view engine', 'hbs');
 // rota inicial 
 // renderiza o home.hbs para abra dentro da tag {{{body}}} no layout
@@ -15,16 +19,38 @@ res.render('home');
 });
 //ativar o sistema
 app.listen(PORT,()=>{
- console.log('Servidor rodando em http://localhost:' +PORT);
+console.log('Servidor rodando em http://localhost:' +PORT);
 })
 
 //rota para os arquivos CSS e JS
 app.use(express.static('public'));
 
+// criar a rota middlewares
+app.use(bodyParser.urlencoded({extended:false}));
+
 // rota renderizada para o cad_users
 app.get('/cad_users',(req,res)=>{
 res.render('cad_users'); 
 });
+
+//criar a rota para receber o formulario de usuário
+app.post('/insert_users',(req,res)=>{
+    var nome = req.body.nome;
+    var email = req.body.email;
+    var senha = req.body.senha;
+    // Salvar no Banco de Dados
+    Usuario.create({
+        nome: nome,
+        email: email.toLowerCase(),
+        senha: senha
+        }).then(function(){
+        console.log('Cadastro realizado com sucesso!');
+        //  req.session.succes = true;
+        return res.redirect('/exibir_users');
+        }).catch(function(erro){
+        console.log(`Ops, deu erro: ${erro}`);
+        })
+    }); // fim do post    
 
 // rota renderizada 
 app.get('/exibir_users',(req,res)=>{    
@@ -39,7 +65,7 @@ app.get('/exibir_users',(req,res)=>{
     })
 })
 
-    
+   
 // rota renderizada 
 app.get('/editar_users',(req,res)=>{
 res.render('editar_users'); 
@@ -54,35 +80,3 @@ res.render('prods');
 app.get('/',(req,res)=>{
     res.render('home'); 
     });
-    
-// add o comando para chamar o módulo:
-const bodyParser = require('body-parser');
-
-// criar a rota middlewares
-app.use(bodyParser.urlencoded({extended:false}));
-
-// criar a rota para o POST middlewares
-app.use(express.static('public'));
-app.use(bodyParser.urlencoded({extended:false}));
-
-//IMPORTAR MODEL USUARIOS
-const Usuario = require('./models/Usuario');
-
-//criar a rota para receber o formulario de usuário
-app.post('/insert_users',(req,res)=>{
-    var nome = req.body.nome;
-    var email = req.body.email;
-    var senha = req.body.senha;
-    // Salvar no Banco de Dados
-    Usuario.create({
-        nome: nome,
-        email: email.toLowerCase(),
-        senha: senha
-        }).then(function(){
-         console.log('Cadastro realizado com sucesso!');
-       //  req.session.succes = true;
-        return res.redirect('/exibir_users');
-        }).catch(function(erro){
-         console.log(`Ops, deu erro: ${erro}`);
-        })
-    });  // fim do post    

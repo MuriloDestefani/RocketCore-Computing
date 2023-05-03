@@ -20,9 +20,8 @@ const db = require('./db');
     }
     })
 
-// Sincronizr com o BD, 
+// Sincronizr com o BD, 
 //se não existir esta tabela durante a execução ele
 //vai criar no BD
 Usuario.sync();
-
-module.exports = Usuario;    
+module.exports = Usuario;
