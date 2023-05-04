@@ -65,7 +65,6 @@ app.get('/exibir_users',(req,res)=>{
     })
 })
 
-   
 // rota renderizada 
 app.get('/editar_users',(req,res)=>{
 res.render('editar_users'); 
@@ -80,3 +79,45 @@ res.render('prods');
 app.get('/',(req,res)=>{
     res.render('home'); 
     });
+
+app.post('/editar_users',(req,res)=>{
+    var id = req.body.id;
+    Usuario.findByPk(id).then((dados)=>{
+        return res.render('editar_users',{error:false, id: dados.id, nome: dados.nome, email:dados.email, senha: dados.senha});
+    }).catch((err)=>{
+        console.log(err);
+        return res.render('editar_users',{error:true, problema: 'Não é possível editar este registro'});
+    }) 
+})
+
+app.post('/update_users',(req,res)=>{
+    var nome = req.body.nome;
+    var email = req.body.email;
+    var senha = req.body.senha;
+    
+    //ATUALIZAR REGISTRO NO BANCO DE DADOS
+    Usuario.update(
+        { nome: nome,
+        email: email.toLowerCase(),
+        senha: senha, },
+        {  where: {
+            id: req.body.id  }
+        }).then((resultado)=>{
+            console.log(resultado);
+            return res.redirect('/exibir_users');
+        }).catch((err)=>{
+            console.log(err);
+        })
+})
+
+app.post('/excluir_users',(req,res)=>{
+    Usuario.destroy({
+        where:{
+            id: req.body.id
+        }
+    }).then((retorno)=>{
+        return res.redirect('/exibir_users');
+    }).catch((err)=>{
+        console.log(err);
+    })
+})
