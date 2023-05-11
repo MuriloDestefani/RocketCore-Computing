@@ -1,0 +1,54 @@
+<div class="container-fluid text-center my-5 ex-prod">
+    <i class="bi bi-dropbox icon-top"></i>
+    <h1 class="mb-3 titulo">Listar Produtos</h1>
+    {{#if table}}
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col"><i class="bi bi-list-ol"></i> ID</th>
+                <th scope="col"><i class="bi bi-box-fill"></i> Nome</th>
+                <th scope="col"><i class="bi bi-body-text"></i> Descrição</th>
+                <th scope="col"><i class="bi bi-currency-dollar"></i></i> Preço</th>
+                <th scope="col"><i class="bi bi-star-fill"></i> Vitrine</th>
+                <th scope="col"><i class="bi bi-camera2"></i> Foto</th>
+                <th scope="col"><i class="bi bi-database-fill"></i> Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each produtos}}
+            <tr>
+                <th scope="row">{{id}}</th>
+                <td>{{nome}}</td>
+                <td>{{descricao}}</td>
+                <td>{{preco}}</td>
+                <td>{{vitrine}}</td>
+                {{!-- <td>{{foto}}</td> --}}
+                <td><img src="{{foto}}" alt="" class="ex-prod-foto"></td>
+                <td>
+                    <div class="row g-1 d-flex justify-content-center align-items-center">
+                        <div class="col-6 col-md-3">
+                             <form action="/editar_users" method="post">
+                                <input type="hidden" name="id"  value="{{id}}">
+                                 <button class="w-100 btn botao-hero">Editar</button>
+                             </form>
+                        </div>
+                        <div class="col-6 col-md-3">
+                                <form action="/excluir_users" method="post">
+                                <input type="hidden" name="id"  value="{{id}}">
+                                <button class="w-100 btn botao">Excluir</button>
+                             </form>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    {{else}}
+    <div class="card mt-4">
+        <div class="card-body">
+            Nenhum dado encontrado!
+        </div>
+    </div>
+    {{/if}}
+</div>

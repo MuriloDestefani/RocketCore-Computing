@@ -46,7 +46,7 @@ app.post('/insert_users',(req,res)=>{
         email: email.toLowerCase(),
         senha: senha
         }).then(function(){
-        console.log('Cadastro realizado com sucesso!');
+        console.log('Cadastro de Usuario realizado com sucesso!');
         //  req.session.succes = true;
         return res.redirect('/exibir_users');
         }).catch(function(erro){
@@ -69,7 +69,7 @@ app.post('/insert_prods',(req,res)=>{
         vitrine: vitrine,
         foto: foto
         }).then(function(){
-        console.log('Cadastro realizado com sucesso!');
+        console.log('Cadastro de Produto realizado com sucesso!');
         //  req.session.succes = true;
         return res.redirect('/prods');
         }).catch(function(erro){
@@ -91,6 +91,19 @@ app.get('/exibir_users',(req,res)=>{
 })
 
 // rota renderizada 
+app.get('/exibir_prods',(req,res)=>{    
+    Produto.findAll().then((valores)=>{
+    if(valores.length >0){
+            return res.render('exibir_prods',{NavActiveUsers:true, table:true, produtos: valores.map(valores => valores.toJSON()) });
+        }else{
+            res.render('exibir_prods',{NavActiveUsers:true, table:false});
+        }
+    }).catch((err)=>{
+        console.log(`Houve um problema: ${err}`);
+    })
+})
+
+// rota renderizada 
 app.get('/editar_users',(req,res)=>{
 res.render('editar_users'); 
 });
@@ -103,7 +116,12 @@ res.render('prods');
 // rota renderizada 
 app.get('/cad_prods',(req,res)=>{
     res.render('cad_prods'); 
-    });
+});
+
+// rota renderizada 
+app.get('/exibir_prods',(req,res)=>{
+    res.render('exibir_prods'); 
+});
 
 // rota renderizada 
 app.get('/',(req,res)=>{
