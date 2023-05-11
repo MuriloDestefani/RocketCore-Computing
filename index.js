@@ -6,6 +6,8 @@ const PORT = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 //IMPORTAR MODEL USUARIOS
 const Usuario = require('./models/Usuario');
+//IMPORTAR MODEL PRODUTOS
+const Produto = require('./models/Produto');
 // Configuracao do HandleBars
 app.engine('hbs',hbs.engine({
     extname: 'hbs', 
@@ -52,6 +54,29 @@ app.post('/insert_users',(req,res)=>{
         })
     }); // fim do post    
 
+//criar a rota para receber o formulario de produtos
+app.post('/insert_prods',(req,res)=>{
+    var nome = req.body.nome;
+    var descricao = req.body.descricao;
+    var preco = req.body.preco;
+    var vitrine = req.body.vitrine;
+    var foto = req.body.foto;
+    // Salvar no Banco de Dados
+    Produto.create({
+        nome: nome,
+        descricao: descricao,
+        preco: preco,
+        vitrine: vitrine,
+        foto: foto
+        }).then(function(){
+        console.log('Cadastro realizado com sucesso!');
+        //  req.session.succes = true;
+        return res.redirect('/prods');
+        }).catch(function(erro){
+        console.log(`Ops, deu erro: ${erro}`);
+        })
+    }); // fim do post    
+
 // rota renderizada 
 app.get('/exibir_users',(req,res)=>{    
     Usuario.findAll().then((valores)=>{
@@ -74,6 +99,11 @@ res.render('editar_users');
 app.get('/prods',(req,res)=>{
 res.render('prods'); 
 });
+
+// rota renderizada 
+app.get('/cad_prods',(req,res)=>{
+    res.render('cad_prods'); 
+    });
 
 // rota renderizada 
 app.get('/',(req,res)=>{
