@@ -1,0 +1,26 @@
+<div class="container-fluid text-center my-5 prods">
+    <i class="bi bi-box2-heart-fill icon-top"></i>
+    <h1 class="mb-3 titulo">Vitrine</h1>
+    {{#if table}}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {{#each produtos}}
+        <div class="col">
+            <div class="card h-100">
+            <img src="{{foto}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{nome}}</h5>
+                <p class="card-text">{{descricao}}</p>
+                <a href="#" class="btn botao-hero"><i class="bi bi-currency-exchange"></i> {{preco}}</a>
+            </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <div class="card mt-4">
+        <div class="card-body">
+            Nenhum produto encontrado   !
+        </div>
+    </div>
+    {{/if}}
+</div>

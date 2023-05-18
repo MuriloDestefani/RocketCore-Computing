@@ -22,7 +22,6 @@
                 <td>{{descricao}}</td>
                 <td>{{preco}}</td>
                 <td>{{vitrine}}</td>
-                {{!-- <td>{{foto}}</td> --}}
                 <td><img src="{{foto}}" alt="" class="ex-prod-foto"></td>
                 <td>
                     <div class="row g-1 d-flex justify-content-center align-items-center">
@@ -33,9 +32,9 @@
                              </form>
                         </div>
                         <div class="col-6 col-md-3">
-                                <form action="/excluir_users" method="post">
+                                <form action="/excluir_prods" method="post">
                                 <input type="hidden" name="id"  value="{{id}}">
-                                <button class="w-100 btn botao">Excluir</button>
+                                <button class="w-250 btn botao">Excluir</button>
                              </form>
                         </div>
                     </div>

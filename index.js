@@ -35,6 +35,11 @@ app.get('/cad_users',(req,res)=>{
 res.render('cad_users'); 
 });
 
+// rota renderizada para o cad_users
+// app.get('/vitrine',(req,res)=>{
+//     res.render('vitrine'); 
+// });
+
 //criar a rota para receber o formulario de usuário
 app.post('/insert_users',(req,res)=>{
     var nome = req.body.nome;
@@ -104,6 +109,20 @@ app.get('/exibir_prods',(req,res)=>{
 })
 
 // rota renderizada 
+app.get('/vitrine',(req,res)=>{    
+    Produto.findAll().then((valores)=>{
+    if(valores.length >0){
+        console.log(valores);
+            return res.render('vitrine',{NavActiveUsers:true, table:true, produtos: valores.map(valores => valores.toJSON()) });
+        }else{
+            res.render('vitrine',{NavActiveUsers:true, table:false});
+        }
+    }).catch((err)=>{
+        console.log(`Houve um problema: ${err}`);
+    })
+})
+
+// rota renderizada 
 app.get('/editar_users',(req,res)=>{
 res.render('editar_users'); 
 });
@@ -160,6 +179,18 @@ app.post('/update_users',(req,res)=>{
 
 app.post('/excluir_users',(req,res)=>{
     Usuario.destroy({
+        where:{
+            id: req.body.id
+        }
+    }).then((retorno)=>{
+        return res.redirect('/exibir_users');
+    }).catch((err)=>{
+        console.log(err);
+    })
+})
+
+app.post('/excluir_prods',(req,res)=>{
+    Produto.destroy({
         where:{
             id: req.body.id
         }
