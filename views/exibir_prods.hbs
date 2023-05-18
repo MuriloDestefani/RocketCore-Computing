@@ -2,11 +2,12 @@
     <i class="bi bi-dropbox icon-top"></i>
     <h1 class="mb-3 titulo">Listar Produtos</h1>
     {{#if table}}
-    <table class="table table-striped align-middle">
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
         <thead class="table-dark">
-            <tr>
+            <tr class="align-middle">
                 <th scope="col"><i class="bi bi-list-ol"></i> ID</th>
-                <th scope="col"><i class="bi bi-box-fill"></i> Nome</th>
+                <th scope="col"><i class="bi bi-box-fill"></i> Produto</th>
                 <th scope="col"><i class="bi bi-body-text"></i> Descrição</th>
                 <th scope="col"><i class="bi bi-currency-dollar"></i></i> Preço</th>
                 <th scope="col"><i class="bi bi-star-fill"></i> Vitrine</th>
@@ -24,17 +25,17 @@
                 <td>{{vitrine}}</td>
                 <td><img src="{{foto}}" alt="" class="ex-prod-foto"></td>
                 <td>
-                    <div class="row g-1 d-flex justify-content-center align-items-center">
-                        <div class="col-6 col-md-3">
+                    <div class="row g-1">
+                        <div class="w-100">
                              <form action="/editar_prods" method="post">
                                 <input type="hidden" name="id"  value="{{id}}">
-                                 <button class="w-50 btn botao-hero">Editar</button>
+                                 <button class="btn botao-hero"><i class="bi bi-arrow-clockwise me-1"></i>Editar</button>
                              </form>
                         </div>
-                        <div class="col-6 col-md-3">
+                        <div class="">
                                 <form action="/excluir_prods" method="post">
                                 <input type="hidden" name="id"  value="{{id}}">
-                                <button class="w-250 btn botao">Excluir</button>
+                                <button class="btn botao"><i class="bi bi-trash3-fill me-1"></i>Excluir</button>
                              </form>
                         </div>
                     </div>
@@ -43,10 +44,11 @@
             {{/each}}
         </tbody>
     </table>
+    </div>
     {{else}}
     <div class="card mt-4">
         <div class="card-body">
-            Nenhum dado encontrado!
+            Nenhum produto encontrado!
         </div>
     </div>
     {{/if}}

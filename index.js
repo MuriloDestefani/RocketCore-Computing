@@ -27,7 +27,15 @@ res.render('home');
 app.get('/vitrine',(req,res)=>{    
     Produto.findAll().then((valores)=>{
     if(valores.length >0){
-        return res.render('vitrine',{NavActiveUsers:true, table:true, produtos: valores.map(valores => valores.toJSON()) });
+        let produtosVitrine = [valores.length];
+        let i = 0;
+        valores.map(produtos => {
+            if (produtos.dataValues.vitrine === true) {
+                produtosVitrine[i] = produtos;
+                i++;
+            }
+        })
+        return res.render('vitrine',{NavActiveUsers:true, table:true, produtos: produtosVitrine.map(valores => valores.toJSON()) });
     }else{
         res.render('vitrine',{NavActiveUsers:true, table:false});
     }
