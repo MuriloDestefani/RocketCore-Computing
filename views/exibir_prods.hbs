@@ -2,7 +2,7 @@
     <i class="bi bi-dropbox icon-top"></i>
     <h1 class="mb-3 titulo">Listar Produtos</h1>
     {{#if table}}
-    <table class="table table-striped align-middle table-responsive">
+    <table class="table table-striped align-middle">
         <thead class="table-dark">
             <tr>
                 <th scope="col"><i class="bi bi-list-ol"></i> ID</th>
@@ -28,7 +28,7 @@
                         <div class="col-6 col-md-3">
                              <form action="/editar_prods" method="post">
                                 <input type="hidden" name="id"  value="{{id}}">
-                                 <button class="w-100 btn botao-hero">Editar</button>
+                                 <button class="w-50 btn botao-hero">Editar</button>
                              </form>
                         </div>
                         <div class="col-6 col-md-3">
