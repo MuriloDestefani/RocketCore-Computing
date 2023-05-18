@@ -76,7 +76,7 @@ app.post('/insert_prods',(req,res)=>{
         }).then(function(){
         console.log('Cadastro de Produto realizado com sucesso!');
         //  req.session.succes = true;
-        return res.redirect('/prods');
+        return res.redirect('/exibir_prods');
         }).catch(function(erro){
         console.log(`Ops, deu erro: ${erro}`);
         })
@@ -112,7 +112,6 @@ app.get('/exibir_prods',(req,res)=>{
 app.get('/vitrine',(req,res)=>{    
     Produto.findAll().then((valores)=>{
     if(valores.length >0){
-        console.log(valores);
             return res.render('vitrine',{NavActiveUsers:true, table:true, produtos: valores.map(valores => valores.toJSON()) });
         }else{
             res.render('vitrine',{NavActiveUsers:true, table:false});
@@ -157,6 +156,16 @@ app.post('/editar_users',(req,res)=>{
     }) 
 })
 
+app.post('/editar_prods',(req,res)=>{
+    var id = req.body.id;
+    Produto.findByPk(id).then((dados)=>{
+        return res.render('editar_prods',{error:false, id: dados.id, nome: dados.nome, descricao:dados.descricao, preco: dados.preco, vitrine: dados.vitrine, foto: dados.foto});
+    }).catch((err)=>{
+        console.log(err);
+        return res.render('editar_prods',{error:true, problema: 'Não é possível editar este registro'});
+    }) 
+})
+
 app.post('/update_users',(req,res)=>{
     var nome = req.body.nome;
     var email = req.body.email;
@@ -172,6 +181,30 @@ app.post('/update_users',(req,res)=>{
         }).then((resultado)=>{
             console.log(resultado);
             return res.redirect('/exibir_users');
+        }).catch((err)=>{
+            console.log(err);
+        })
+})
+
+app.post('/update_prods',(req,res)=>{
+    var nome = req.body.nome;
+    var descricao = req.body.descricao;
+    var preco = req.body.preco;
+    var vitrine = req.body.vitrine;
+    var foto = req.body.foto;
+    
+    //ATUALIZAR REGISTRO NO BANCO DE DADOS
+    Produto.update(
+        { nome: nome,
+        descricao: descricao,
+        preco: preco,
+        vitrine: vitrine,
+        foto: foto,},
+        {  where: {
+            id: req.body.id  }
+        }).then((resultado)=>{
+            console.log(resultado);
+            return res.redirect('/exibir_prods');
         }).catch((err)=>{
             console.log(err);
         })
@@ -195,7 +228,7 @@ app.post('/excluir_prods',(req,res)=>{
             id: req.body.id
         }
     }).then((retorno)=>{
-        return res.redirect('/exibir_users');
+        return res.redirect('/exibir_prods');
     }).catch((err)=>{
         console.log(err);
     })

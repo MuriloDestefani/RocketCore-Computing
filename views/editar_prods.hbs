@@ -1,0 +1,38 @@
+<div class="container-fluid text-center">
+    <div class="row align-items-center">
+        <div class="col container-fluid my-5">
+            <form action="/update_prods" method="POST">
+                <i class="bi bi-box-seam icon-top"></i>
+                <h1 class="mb-3 titulo">Editar Produto</h1>
+                <div class="form-floating mb-3 mx-auto col-xl-8">
+                    <input type="hidden" value="{{id}}" name="id">
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Produto" value="{{nome}}">
+                    <label for="nome">Nome do Produto</label>
+                </div>
+                <div class="form-floating mb-3 mx-auto col-xl-8">
+                    <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição do Produto" value="{{descricao}}">
+                    <label for="descricao" class="form-label">Descrição do Produto</label>
+                </div>
+                <div class="form-floating mb-3 mx-auto col-xl-8">
+                    <input type="number" step="0.01" class="form-control" id="preco" name="preco" placeholder="Preço do Produto" value="{{preco}}">
+                    <label for="preco" class="form-label">Preço do Produto</label>
+                </div>
+                <div class="form-floating mb-3 mx-auto col-xl-8">
+                    <input type="text" class="form-control" id="foto" name="foto" placeholder="Caminho da Foto do Produto" value="{{foto}}">
+                    <label for="foto" class="form-label">Caminho da Foto do Produto</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="vitrine" id="vitrine" value="{{vitrine}}" checked>
+                    <label class="form-check-label" for="vitrine">Produto de Catálogo</label>
+                </div>
+                <div class="form-check form-check-inline mb-3">
+                    <input class="form-check-input" type="radio" name="vitrine" id="vitrine" value="{{vitrine}}">
+                    <label class="form-check-label" for="inlineRadio2">Produto de Vitrine</label>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-lg botao-hero mx-auto">Editar <i class="bi bi-box-seam"></i></button>
+            </form>
+        </div>
+        <div class="col img-cad d-none d-xl-block d-xxl-none"></div>
+    </div>
+</div>
