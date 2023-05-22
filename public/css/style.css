@@ -14,11 +14,6 @@ body {
     background-color: var(--cinza) !important;
 }
 
-.active {
-    font-weight: bold;
-    color: var(--roxo) !important;
-}
-
 .botao {
     font-weight: 700;
     color: var(--branco);
@@ -95,30 +90,6 @@ footer a:hover {
     background-color: var(--roxo);
 }
 
-.hero {
-    min-height: 100vh;
-    background-image: url(/img/rocket.png);
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: cover;
-}
-
-.hero h2,
-.hero h6,
-.hero p {
-    color: var(--branco);
-}
-
-.hero h2 {
-    font-weight: 700;
-    font-size: 56px;
-}
-
-.hero h6 {
-    font-size: 18px;
-    color: var(--azul);
-}
-
 .botao-hero {
     color: var(--branco);
     background-color: var(--roxo);
@@ -169,7 +140,7 @@ footer a:hover {
 .img-cad {
     min-height: 100vh;
     background-color: var(--roxo);
-    background-image: url(/img/hey-click-here-portrait-friendly-looking-charming-cute-redhead-female-purple-sweater-pointing-upper-left-corner-with-index-finger-smiling-showing-copy-space-recommending-offering.jpg);
+    background-image: url(/img/young-woman-freelancer-cafe-with-cup-coffee-gift-box.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -219,4 +190,13 @@ footer a:hover {
 .ex-prod-foto {
     width: auto;
     height: 100px;
+}
+
+.home {
+    min-height: 100vh;
+    background-color: var(--roxo);
+    background: linear-gradient(to top, #121214ba, #8257E5cc), url(/img/astronaut-space-with-planet-background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }

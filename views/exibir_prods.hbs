@@ -8,7 +8,7 @@
             <tr class="align-middle">
                 <th scope="col"><i class="bi bi-list-ol"></i> ID</th>
                 <th scope="col"><i class="bi bi-box-fill"></i> Produto</th>
-                <th scope="col"><i class="bi bi-body-text"></i> Descrição</th>
+                {{!-- <th scope="col"><i class="bi bi-body-text"></i> Descrição</th> --}}
                 <th scope="col"><i class="bi bi-currency-dollar"></i></i> Preço</th>
                 <th scope="col"><i class="bi bi-star-fill"></i> Vitrine</th>
                 <th scope="col"><i class="bi bi-camera2"></i> Foto</th>
@@ -17,25 +17,25 @@
         </thead>
         <tbody>
             {{#each produtos}}
-            <tr class="">
+            <tr>
                 <th scope="row">{{id}}</th>
                 <td>{{nome}}</td>
-                <td>{{descricao}}</td>
+                {{!-- <td>{{descricao}}</td> --}}
                 <td>{{preco}}</td>
                 <td>{{vitrine}}</td>
-                <td><img src="{{foto}}" alt="" class="ex-prod-foto"></td>
+                <td><img src="{{foto}}" alt="{{descricao}}" class="ex-prod-foto"></td>
                 <td>
-                    <div class="row g-1">
+                    <div class="row g-1 d-flex justify-content-center align-items-center">
                         <div class="w-100">
                              <form action="/editar_prods" method="post">
                                 <input type="hidden" name="id"  value="{{id}}">
-                                 <button class="btn botao-hero"><i class="bi bi-arrow-clockwise me-1"></i>Editar</button>
+                                 <button class="btn botao-hero w-100"><i class="bi bi-pencil-fill me-1">Editar</i></button>
                              </form>
                         </div>
-                        <div class="">
+                        <div class="w-100">
                                 <form action="/excluir_prods" method="post">
                                 <input type="hidden" name="id"  value="{{id}}">
-                                <button class="btn botao"><i class="bi bi-trash3-fill me-1"></i>Excluir</button>
+                                <button class="btn botao w-100"><i class="bi bi-trash3-fill me-1">Excluir</i></button>
                              </form>
                         </div>
                     </div>
