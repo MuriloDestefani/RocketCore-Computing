@@ -48,10 +48,6 @@ body {
     color: var(--roxo);
 }
 
-.navbar-brand {
-    font-family: 'Fira Code', monospace;
-}
-
 footer {
     color: var(--branco);
 }
@@ -199,4 +195,10 @@ footer a:hover {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    color: var(--branco);
+}
+
+.home h1 {
+    
+    font-weight: bold;
 }
