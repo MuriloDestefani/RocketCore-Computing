@@ -188,6 +188,14 @@ footer a:hover {
     height: 100px;
 }
 
+nav {
+    border-bottom: 1px solid #ACACAD;
+}
+
+footer {
+    border-top: 1px solid #ACACAD;
+}
+
 .home {
     min-height: 100vh;
     background-color: var(--roxo);
@@ -199,6 +207,72 @@ footer a:hover {
 }
 
 .home h1 {
-    
     font-weight: bold;
+}
+
+.home h5 {
+    color: var(--azul);
+}
+
+.card-servico i {
+    color: var(--roxo-hover);
+    font-size: 4rem;
+}
+
+.card-servico h5 {
+    color: inherit;
+}
+
+.card-servico p {
+    font-size: 1rem;
+}
+
+.card-servico a {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.produtos {
+    background-color: var(--cinza);
+    color: var(--branco);
+}
+
+.card-prod img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.card-prod h2 {
+    color: var(--roxo-hover);
+    font-weight: 500;
+}
+
+.card-prod p {
+    line-height: 1.4rem;
+}
+
+.card-prod h4 {
+    font-size: 1rem;
+    color: inherit;
+}
+
+.frase {
+    min-height: 35vh;
+    background-color: var(--roxo);
+    background: linear-gradient(to top, #121214ba, #8257E5cc), url(/img/glowing-blue-sphere-held-by-human-hand-generated-by-ai.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: var(--branco);
+}
+
+.frase span {
+    line-height: 2rem;
+}
+
+.autor {
+    color: var(--azul);
 }

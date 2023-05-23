@@ -20,9 +20,17 @@ app.engine('hbs',hbs.engine({
 
 app.set('view engine', 'hbs');
 
-app.get('/',(req,res)=>{
-res.render('home'); 
-});
+app.get('/',(req,res)=>{    
+    Produto.findAll().then((valores)=>{
+    if(valores.length >0){
+        return res.render('home',{NavActiveUsers:true, table:true, produtos: valores.map(valores => valores.toJSON()) });
+    }else{
+        res.render('home',{NavActiveUsers:true, table:false});
+    }
+    }).catch((err)=>{
+        console.log(`Houve um problema: ${err}`);
+    })
+})
 
 app.get('/vitrine',(req,res)=>{    
     Produto.findAll().then((valores)=>{
@@ -199,3 +207,7 @@ app.post('/excluir_prods',(req,res)=>{
         console.log(err);
     })
 })
+
+app.get('/contato',(req,res)=>{
+    res.render('contato'); 
+});

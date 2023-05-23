@@ -1,6 +1,115 @@
 <div class="container-fluid home d-flex flex-column justify-content-center align-items-center text-center">
-    <h4>👋 Hello Dev</h4>
+    <h5>👋 Hello Dev</h5>
     <h1>Bem Vindo a RocketCore Computing</h1>
     <p class="w-75">Aqui você encontra produtos de alto desempenho e custo otimizado, projetados por desenvolvedores para desenvolvedores. Acelere suas aplicações com nossa linha especializada.</p>
     <a href="/vitrine"><button type="button" class="btn btn-lg botao-hero"><i class="bi bi-rocket me-2"></i>Explorar</button></a>
 </div>
+
+<section class="container-fluid servicos py-5">
+    <header class="text-center mb-4">
+        <h2>Nossos Serviços</h2>
+        <p>Oferecemos soluções tecnológicas avançadas para impulsionar o desempenho e a eficiência dos seus sistemas</p>
+    </header>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card-servico d-flex flex-column justify-content-center align-items-center text-center">
+                <i class="bi bi-laptop"></i>
+                <h5 class="card-title mb-3">Arquitetura de Sistemas</h5>
+                <p class="card-text">Desenvolvemos arquiteturas de sistemas personalizadas para otimizar o desempenho e a escalabilidade do seu negócio.</p>
+                <a href="#" class="card-link">Saiba Mais</a>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card-servico d-flex flex-column justify-content-center align-items-center text-center">
+                <i class="bi bi-cloud-fill"></i>
+                <h5 class="card-title mb-3">Computação em Nuvem</h5>
+                <p class="card-text">Oferecemos soluções em nuvem flexíveis e seguras para armazenamento, processamento e análise de dados.</p>
+                <a href="#" class="card-link">Saiba Mais</a>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card-servico d-flex flex-column justify-content-center align-items-center text-center">
+                <i class="bi bi-gear-fill"></i>
+                <h5 class="card-title mb-3">Otimização de Código</h5>
+                <p class="card-text">Aumentamos a eficiência do seu software através da otimização de código, melhorando a velocidade e o desempenho.</p>
+                <a href="#" class="card-link">Saiba Mais</a>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card-servico d-flex flex-column justify-content-center align-items-center text-center">
+                <i class="bi bi-shield-lock-fill"></i>
+                <h5 class="card-title mb-3">Segurança Cibernética</h5>
+                <p class="card-text">Protegemos sua empresa contra ameaças cibernéticas, oferecendo soluções abrangentes de segurança e monitoramento.</p>
+                <a href="#" class="card-link">Saiba Mais</a>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card-servico d-flex flex-column justify-content-center align-items-center text-center">
+                <i class="bi bi-database-fill"></i>
+                <h5 class="card-title mb-3">Análise de Dados</h5>
+                <p class="card-text">Utilizamos técnicas avançadas de análise de dados para extrair insights valiosos e tomar decisões estratégicas informadas.</p>
+                <a href="#" class="card-link">Saiba Mais</a>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card-servico d-flex flex-column justify-content-center align-items-center text-center">
+                <i class="bi bi-chat-fill"></i>
+                <h5 class="card-title mb-3">Suporte Técnico 24/7</h5>
+                <p class="card-text">Oferecemos suporte técnico especializado 24 horas por dia, 7 dias por semana, garantindo a continuidade do seu negócio.</p>
+                <a href="#" class="card-link">Saiba Mais</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container-fluid produtos py-5 overflow-x-hidden">
+    <header class="text-center mb-4">
+        <h2>Nossos Produtos</h2>
+        <p>Temos produtos inovadores de alta performance para acelerar suas aplicações computacionais com eficiência surpreendente.</p>
+    </header>
+
+    {{#if table}}
+    <div class="row g-5 justify-content-envely align-items-center">
+        {{#each produtos}}
+        <div class="col-lg-6">
+            <div class="card card-prod">
+                <div class="row g-0">
+                    <div class="col-6 col-md-5">
+                        <img src="{{foto}}" class="card-img img-fluid" alt="{{descricao}}">
+                    </div>
+                    <div class="col-6 col-md-7">
+                        <div class="card-body d-flex flex-column">
+                            <div class="h100">
+                                <h2 class="card-title">{{nome}}</h2>
+                                <p class="card-text">{{descricao}}</p>
+                                <h4 class="card-title mb-3">$<strong class="ms-1">{{preco}}</strong></h4>
+                            </div>
+                            <div>
+                                <a href="/vitrine"><button class="btn btn-dark"><i class="bi bi-cpu me-1"></i>Desbloqueie Agora</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <div class="card mt-4">
+        <div class="card-body">
+            Nenhum produto encontrado   !
+        </div>
+    </div>
+    {{/if}}
+</section>
+
+<section class="container-fluid frase py-5 d-flex flex-column justify-content-center align-items-center text-center">
+    <span class="w-75">"Assim como os circuitos se entrelaçam nas entranhas dos computadores, as conexões humanas tecem a tapeçaria da existência.<br>Somos nós, navegantes cibernéticos, os artífices de nossa própria rede de significado."</span>
+    <span class="w-75 autor"><strong>- Dr. Elias Turing</strong></span>
+</section>
