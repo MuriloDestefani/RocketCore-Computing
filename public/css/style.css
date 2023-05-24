@@ -276,3 +276,23 @@ footer {
 .autor {
     color: var(--azul);
 }
+
+.contato-form {
+    background-color: var(--roxo-hover);
+    color: var(--branco);
+}
+
+.img-contato {
+    min-height: 100vh;
+    background-color: var(--roxo);
+    background-image: url(/img/woman-with-smart-glasses-futuristic-technology.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+
+@media only screen and (max-width:575px) {
+    .contato-form {
+        border-radius: 0.8rem;
+    }
+}
