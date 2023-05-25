@@ -32,24 +32,16 @@ app.get('/',(req,res)=>{
     })
 })
 
-app.get('/vitrine',(req,res)=>{    
+app.get('/catalogo',(req,res)=>{    
     Produto.findAll().then((valores)=>{
-    if(valores.length >0){
-        let produtosVitrine = [valores.length];
-        let i = 0;
-        valores.map(produtos => {
-            if (produtos.dataValues.vitrine === true) {
-                produtosVitrine[i] = produtos;
-                i++;
-            }
+        if(valores.length >0){
+            return res.render('catalogo',{NavActiveUsers:true, table:true, produtos: valores.map(valores => valores.toJSON()) });
+        }else{
+            res.render('catalogo',{NavActiveUsers:true, table:false});
+        }
+        }).catch((err)=>{
+            console.log(`Houve um problema: ${err}`);
         })
-        return res.render('vitrine',{NavActiveUsers:true, table:true, produtos: produtosVitrine.map(valores => valores.toJSON()) });
-    }else{
-        res.render('vitrine',{NavActiveUsers:true, table:false});
-    }
-    }).catch((err)=>{
-        console.log(`Houve um problema: ${err}`);
-    })
 })
 
 app.get('/cad_users',(req,res)=>{
